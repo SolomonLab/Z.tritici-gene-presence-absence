@@ -5,6 +5,7 @@
 
 ###Import modules
 import csv
+import sys
 import argparse
 from Bio import SeqIO
 from Bio.Seq import Seq
@@ -63,7 +64,7 @@ def main(inGff=None, refFasta=None, outFasta=None):
 		startbase=min(d[key]["bases"])
 		endbase=max(d[key]["bases"])
 		c1=d[key]["CHR"][0]
-		p1=subprocess.call(["samtools faidx "refFasta" "+c1+":"+startbase+"-"+endbase+"> temp.fasta"], shell=True)
+		p1=subprocess.call(["samtools faidx "+refFasta+" "+c1+":"+startbase+"-"+endbase+"> temp.fasta"], shell=True)
 		temp_file=open('temp.fasta', 'r')
 		for seq_record in SeqIO.parse(temp_file, 'fasta'):
 			gene[key]=str(seq_record.seq)
@@ -87,6 +88,7 @@ if __name__== '__main__':
 	arg_parser.add_argument("-r", "--inRef", default=None, required=True, help="Provide the reference genome to extract sequence from using samtools faidx")
 	arg_parser.add_argument("-o", "--outFasta", default=None, required=True, help="Provide output file name, will be written to current directory if full path is not provided")
 	if len(sys.argv)==1:
+		arg_parser.print_help()
 		sys.exit(1)
 		
 	#Parser arguments
