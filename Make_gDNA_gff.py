@@ -13,7 +13,7 @@ from os.path import basename
 from collections import defaultdict
 import subprocess
 
-outFasta="test.fa.out"
+outFasta="10688_gdna.fa"
 # Open output fasta file
 fasta_file=open(outFasta,'w')
 
@@ -21,8 +21,9 @@ fasta_file=open(outFasta,'w')
 gff=open("/Users/meganm/Genomes/IPO323/Zym_jason_annotation/Jason_EBI_Annotation2.gff3", "rt")
 
 #Initialise dictionary
-d=defaultdict(list)
-c=defaultdict(list)
+d=defaultdict(dict)
+
+#c=defaultdict(list)
 gfflist=[]
 genechrom=[]
 #start looking through original gff
@@ -38,37 +39,36 @@ for line in reader:
 	dummy3=line[7]
 	name=line[8]
 	geneid=name[3:]
-	gfflist.append((geneid,start,stop))
-	genechrom.append((geneid,chrom))
-
-for k, v, x in gfflist:
-	d[k].append(v)
-	d[k].append(x)
-
-for m, n in genechrom:
-	c[m].append(n)
+	gfflist.append((geneid,start,stop,chrom))
+#	genechrom.append((geneid,chrom))
 
 
-for key in d:
-	d[key].append(c[key][0])
+for k, v, x, z in gfflist:
+	if k not in d:
+		d[k]["bases"]=list()
+		d[k]["CHR"]=list()
+		d[k]["CHR"].append(z)
+	d[k]["bases"].append(v)
+	d[k]["bases"].append(x)
+
 
 
 gene={}
 for key in d:
-	startbase=min(d[key][0:-1])
-	endbase=max(d[key][0:-1])
-	p1=subprocess.call(["samtools faidx /Users/meganm/Genomes/IPO323/Mycosphaerella_graminicola.allmasked.fa "+d[key][-1]+":"+startbase+"-"+endbase+"> temp.fasta"], shell=True)
+	startbase=min(d[key]["bases"])
+	endbase=max(d[key]["bases"])
+	c1=d[key]["CHR"][0]
+	p1=subprocess.call(["samtools faidx /Users/meganm/Genomes/IPO323/Mycosphaerella_graminicola.allmasked.fa "+c1+":"+startbase+"-"+endbase+"> temp.fasta"], shell=True)
 	temp_file=open('temp.fasta', 'r')
 	for seq_record in SeqIO.parse(temp_file, 'fasta'):
 		gene[key]=str(seq_record.seq)
 		
 
+for key, value in gene.iteritems():
+	fasta_file.write('>'+key+'\n')
+	fasta_file.write(value+'\n')
 
-for key in gene:
-	fasta_file.write(gene[key]+'\n')
-	fasta_file.write(gene[key][0]+'\n')
-	
 	
 gff.close()
 fasta_file.close()
-	
+
