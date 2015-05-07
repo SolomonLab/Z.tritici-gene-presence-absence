@@ -33,7 +33,7 @@ cd /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence
 -b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI329.blastn.out  -g WAI329.50percent.out.gff -o WAI329.50percent.out.fasta
 
 ~/GIT/Z.tritici-gene-presence-absence/BLASTtoGFF_50percent.py -i/Users/meganm/Genomes/IPO323/Zym_jason_annotation/10688_proteins_JV1.fasta -r /Volumes/Solomon_Lab/Megan/Spades_assembly/Complete_genomes/ST79.spades.fa \
--b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI332.blastn.out  -g WAI332.50percent.out.gff -o WAI332.50percent.out.fasta
+-b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/ST79.blastn.out  -g WAI332.50percent.out.gff -o WAI332.50percent.out.fasta
 
 ~/GIT/Z.tritici-gene-presence-absence/BLASTtoGFF_50percent.py -i/Users/meganm/Genomes/IPO323/Zym_jason_annotation/10688_proteins_JV1.fasta -r /Volumes/Solomon_Lab/Megan/Spades_assembly/Complete_genomes/ST147.spades.fa \
 -b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/ST147.blastn.out  -g WAI147.50percent.out.gff -o WAI147.50percent.out.fasta
