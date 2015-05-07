@@ -6,7 +6,7 @@
 
 cd /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence
 ~/GIT/Z.tritici-gene-presence-absence/BLASTtoGFF_50percent.py -i/Users/meganm/Genomes/IPO323/Zym_jason_annotation/10688_proteins_JV1.fasta -r /Volumes/Solomon_Lab/Megan/Spades_assembly/Complete_genomes/WAI320.spades.fa \
--b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI320.blastn.out  -g WAI320.50percent.out.gff -o WAI320.50percent.out.fasta
+-b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI320.blastn.out  -g WAI320.50percent.out.gff -o WAI320.50percent.out.fastasdkgljal
 
 ~/GIT/Z.tritici-gene-presence-absence/BLASTtoGFF_50percent.py -i/Users/meganm/Genomes/IPO323/Zym_jason_annotation/10688_proteins_JV1.fasta -r /Volumes/Solomon_Lab/Megan/Spades_assembly/Complete_genomes/WAI321.spades.fa \
 -b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI321.blastn.out  -g WAI321.50percent.out.gff -o WAI321.50percent.out.fasta
