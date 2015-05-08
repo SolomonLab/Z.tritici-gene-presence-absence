@@ -5,10 +5,14 @@
 ## Will use as final results for genome paper gene presence absence
 
 cd /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence
+##Use python script to make gff files and fasta files for each gene from each Spades denovo assembly
 ~/GIT/Z.tritici-gene-presence-absence/BLASTtoGFF_50percent.py -i/Users/meganm/Genomes/IPO323/Zym_jason_annotation/10688_proteins_JV1.fasta -r /Volumes/Solomon_Lab/Megan/Spades_assembly/Complete_genomes/WAI320.spades.fa \
 -b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI320.blastn.out  -g WAI320.50percent.out.gff -o WAI320.50percent.out.fasta
+#sort the gff file by gene number to get the gene in the order that they occur accross the genome
 cat WAI320.50percent.out.gff | awk -F ZtRRes_ '{print $1 $2 }' | sort -k2 > WAI320.50percent.sorted.out.gff
+#add back in the original Zt_RRes which was removed in the previous step to allow proper sorting
 cat WAI320.50percent.sorted.out.gff | awk '{print $1 "\tZtRRes_"$2"\t"$3"\t"$4}' >WAI320.50percent.sorted.out.gff
+
 
 ~/GIT/Z.tritici-gene-presence-absence/BLASTtoGFF_50percent.py -i/Users/meganm/Genomes/IPO323/Zym_jason_annotation/10688_proteins_JV1.fasta -r /Volumes/Solomon_Lab/Megan/Spades_assembly/Complete_genomes/WAI321.spades.fa \
 -b /Volumes/Solomon_Lab/Megan/Spades_assembly/RRes_anno_pres_absence/WAI321.blastn.out  -g WAI321.50percent.out.gff -o WAI321.50percent.out.fasta
