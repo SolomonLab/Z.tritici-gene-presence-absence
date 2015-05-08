@@ -108,7 +108,7 @@ if __name__== '__main__':
 	arg_parser.add_argument("-b","--inBlast", default=None, required=True, help="Tab delimited blast result of query genes against reference genome")
 	arg_parser.add_argument("-g","--outGff", default=None, help="Path to gff output file")
 	arg_parser.add_argument("-o","--outFasta", default=None, help="Path to output fasta file")
-	arg_parser.add_argument("-p","--percentCover", default=50, help="Minimum query coverage threshold for hit to be considered, given as int between 1 and 100, default 50")
+	arg_parser.add_argument("-p","--percentCover", default=50, type=int, help="Minimum query coverage threshold for hit to be considered, given as int between 1 and 100, default 50")
 
 	if len(sys.argv)==1:
 		arg_parser.print_help()
