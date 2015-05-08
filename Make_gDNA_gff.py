@@ -13,7 +13,7 @@ from collections import defaultdict
 import subprocess
 
 
-def main(inGff=None, refFasta=None, outFasta=None):
+def main(inGff=None, refFasta=None, outFasta=None, outGff=None):
 
 	#open fasta file from commandline
 	#fasta_file=open("test.fasta",'w')
@@ -22,6 +22,8 @@ def main(inGff=None, refFasta=None, outFasta=None):
 	# Open Gff3 file to be parsed
 	#gff=open("~/Genomes/IPO323/Zym_jason_annotation/Jason_EBI_Annotation2.gff3", "rt")
 	gff=open(inGff, "rt")
+	#Open gff file for writing
+	gffout=open(outGff, 'w')
 
 	#Initialise dictionary
 	d=defaultdict(dict)
@@ -66,6 +68,8 @@ def main(inGff=None, refFasta=None, outFasta=None):
 		startbase=min(d[key]["bases"])
 		endbase=max(d[key]["bases"])
 		c1=d[key]["CHR"][0]
+		gffline="%s\t%s\t%s\t%s" % (c1,key,startbase, endbase)
+		gffout.write(gffline+"\n")
 		p1=subprocess.call(["samtools faidx "+refFasta+" "+c1+":"+startbase+"-"+endbase+"> temp.fasta"], shell=True)
 		temp_file=open('temp.fasta', 'r')
 		for seq_record in SeqIO.parse(temp_file, 'fasta'):
@@ -89,6 +93,7 @@ if __name__== '__main__':
 	arg_parser.add_argument("-i", "--inGff", default=None, required=True, help="Provide the path to the Gff file containing coding exons ONLY")
 	arg_parser.add_argument("-r", "--inRef", default=None, required=True, help="Provide the reference genome to extract sequence from using samtools faidx")
 	arg_parser.add_argument("-o", "--outFasta", default=None, required=True, help="Provide output file name, will be written to current directory if full path is not provided")
+	arg_parser.add_argument("-g", "--outGff", default=None, required=True, help="Provide output file name, will be written to current directory if full path is not provided")
 	if len(sys.argv)==1:
 		arg_parser.print_help()
 		sys.exit(1)
@@ -100,5 +105,6 @@ if __name__== '__main__':
 	inGff=args.inGff
 	refFasta=args.inRef
 	outFasta=args.outFasta
+	outGff=args.outGff
 	
-	main(inGff, refFasta, outFasta)
+	main(inGff, refFasta, outFasta, outGff)
