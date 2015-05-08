@@ -16,9 +16,11 @@ import subprocess
 def main(inGff=None, refFasta=None, outFasta=None):
 
 	#open fasta file from commandline
+	#fasta_file=open("test.fasta",'w')
 	fasta_file=open(outFasta,'w')
 
 	# Open Gff3 file to be parsed
+	#gff=open("~/Genomes/IPO323/Zym_jason_annotation/Jason_EBI_Annotation2.gff3", "rt")
 	gff=open(inGff, "rt")
 
 	#Initialise dictionary
