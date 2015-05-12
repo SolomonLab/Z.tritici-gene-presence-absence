@@ -1,0 +1,42 @@
+#! /bin/bash
+## Repeat assemblies with newest version of SPades  v3.5 to see if I can eliminate spurious gene absences
+
+#~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI320_R1.paired.trimmed.fq.gz -2 /LargeDataSet/Megan/Trimmed_data/WAI320_R2.paired.trimmed.fq.gz \
+#-s /LargeDataSet/Megan/Trimmed_data/WAI320_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI320_R2.unpaired.trimmed.fq.gz \
+#-o WAI320_spades3.5 --careful -t 10 -m 28
+
+#echo "---------------starting WAI321-------------------"
+#~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI321_R1.paired.trimmed.fq.gz -2 /LargeDataSet/Megan/Trimmed_data/WAI321_R2.paired.trimmed.fq.gz \
+#-s /LargeDataSet/Megan/Trimmed_data/WAI321_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI321_R2.unpaired.trimmed.fq.gz \
+#-o WAI321_spades3.5 --careful -t 10 -m 28
+#echo "---------------starting WAI322-------------------"
+#~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI322_R1.paired.trimmed.fq.gz -2 /LargeDataSet/Megan/Trimmed_data/WAI322_R2.paired.trimmed.fq \
+#-s /LargeDataSet/Megan/Trimmed_data/WAI322_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI322_R2.unpaired.trimmed.fq.gz \
+#-o WAI322_spades3.5 --careful -t 10 -m 28
+echo "---------------starting WAI323-------------------"
+~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI323_R1.paired.trimmed.fq -2 /LargeDataSet/Megan/Trimmed_data/WAI323_R2.paired.trimmed.fq \
+-s /LargeDataSet/Megan/Trimmed_data/WAI323_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI323_R2.unpaired.trimmed.fq.gz \
+-o WAI323_spades3.5 --careful -t 10 -m 28
+echo "---------------starting WAI324-------------------"
+~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI324_R1.paired.trimmed.fq -2 /LargeDataSet/Megan/Trimmed_data/WAI324_R2.paired.trimmed.fq \
+-s /LargeDataSet/Megan/Trimmed_data/WAI324_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI324_R2.unpaired.trimmed.fq.gz \
+-o WAI324_spades3.5 --careful -t 10 -m 28
+echo "---------------starting WAI326-------------------"
+~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI326_R1.paired.trimmed.fq -2 /LargeDataSet/Megan/Trimmed_data/WAI326_R2.paired.trimmed.fq \
+-s /LargeDataSet/Megan/Trimmed_data/WAI326_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI326_R2.unpaired.trimmed.fq.gz \
+-o WAI326_spades3.5 --careful -t 10 -m 28
+echo "---------------starting WAI327-------------------"
+~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI327_R1.paired.trimmed.fq -2 /LargeDataSet/Megan/Trimmed_data/WAI327_R2.paired.trimmed.fq \
+-s /LargeDataSet/Megan/Trimmed_data/WAI327_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI327_R2.unpaired.trimmed.fq.gz \
+-o WAI327_spades3.5 --careful -t 10 -m 28
+echo "---------------starting WAI328-------------------"
+~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI328_R1.paired.trimmed.fq -2 /LargeDataSet/Megan/Trimmed_data/WAI328_R2.paired.trimmed.fq \
+-s /LargeDataSet/Megan/Trimmed_data/WAI328_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI328_R2.unpaired.trimmed.fq.gz \
+-o WAI328_spades3.5 --careful -t 10 -m 28
+echo "---------------starting WAI329-------------------"
+~/programs/SPAdes-3.5.0-Linux/bin/spades.py -1 /LargeDataSet/Megan/Trimmed_data/WAI329_R1.paired.trimmed.fq -2 /LargeDataSet/Megan/Trimmed_data/WAI329_R2.paired.trimmed.fq \
+-s /LargeDataSet/Megan/Trimmed_data/WAI329_R1.unpaired.trimmed.fq.gz -s /LargeDataSet/Megan/Trimmed_data/WAI329_R2.unpaired.trimmed.fq.gz \
+-o WAI329_spades3.5 --careful -t 10 -m 28
+
+
+

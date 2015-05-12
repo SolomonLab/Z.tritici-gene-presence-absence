@@ -42,8 +42,8 @@ def main(inGff=None, refFasta=None, outFasta=None, outGff=None):
 		chrom="chr_"+line[0]
 		prog=line[1]
 		cod=line[2]
-		start=line[3]
-		stop=line[4]
+		start=int(line[3])
+		stop=int(line[4])
 		dummy1=line[5]
 		dummy2=line[6]
 		dummy3=line[7]
@@ -70,7 +70,9 @@ def main(inGff=None, refFasta=None, outFasta=None, outGff=None):
 		c1=d[key]["CHR"][0]
 		gffline="%s\t%s\t%s\t%s" % (c1,key,startbase, endbase)
 		gffout.write(gffline+"\n")
-		p1=subprocess.call(["samtools faidx "+refFasta+" "+c1+":"+startbase+"-"+endbase+"> temp.fasta"], shell=True)
+		ststart=str(startbase)
+		stend=str(endbase)
+		p1=subprocess.call(["samtools faidx "+refFasta+" "+c1+":"+ststart+"-"+stend+"> temp.fasta"], shell=True)
 		temp_file=open('temp.fasta', 'r')
 		for seq_record in SeqIO.parse(temp_file, 'fasta'):
 			gene[key]=str(seq_record.seq)
